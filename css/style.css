@@ -40,7 +40,7 @@ body {
 .titleSection {
   height: auto;
   background-color: #ed960c;
-  color: white;
+  color: #f8f9fa;
   font-family: "Roboto", sans-serif;
   font-style: italic;
 }
@@ -70,4 +70,96 @@ h2 span {
 .pointsImg {
   width: auto;
   height: 15vh;
+}
+
+/* Products section*/
+.titulosImp1,
+.contactoSug {
+  color: #ff5500;
+  text-shadow: 3px 3px 1px #d9d9d9;
+  text-decoration: underline;
+  font-family: "Barrio", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  margin-top: 5rem;
+}
+
+.tituloProductos {
+  font-family: "Playball", sans-serif;
+  font-size: 3.5rem;
+}
+
+.descripcionP {
+  font-style: italic;
+  margin: 3rem 0rem;
+}
+
+.hamburguesas,
+.pastas,
+.salsas,
+.card-body .btn {
+  font-weight: 100;
+  background-color: transparent;
+  border: 2px solid;
+  font-size: 1.5rem;
+}
+
+.contenedorProductos {
+  border-radius: 1rem;
+  background-color: #212529;
+  margin: auto 1rem;
+}
+
+.card-body .btn:hover {
+  border: #ed960c 2px solid;
+  color: #ed960c;
+  font-weight: 400;
+}
+
+.subtitulo {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #ed960c;
+}
+
+.card {
+  background-color: transparent;
+  padding: 2rem 0rem;
+  border: none;
+}
+
+.card:hover {
+  background-color: #d9d9d9;
+}
+
+.card img {
+  width: 15rem;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+}
+
+.card .list-group,
+.card .list-group-item {
+  border: none;
+  background-color: transparent;
+  color: #d9d9d9;
+}
+
+.burgerContainer {
+  display: none;
+  justify-content: space-evenly;
+  padding-bottom: 3rem;
+}
+
+.pastaContainer {
+  display: none;
+  justify-content: space-evenly;
+  padding-bottom: 3rem;
+}
+
+.sauceContainer {
+  display: none;
+  justify-content: space-evenly;
+  padding-bottom: 3rem;
 }
