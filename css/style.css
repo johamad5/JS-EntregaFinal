@@ -1,0 +1,27 @@
+/* General style */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62, 5%;
+}
+
+body {
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Navbar style */
+.navbar-nav li a {
+  text-align: center;
+  margin: 1rem 1rem;
+  font-family: "Barrio", cursive;
+}
+
+.navbar-nav li a:hover {
+  text-decoration: overline;
+}

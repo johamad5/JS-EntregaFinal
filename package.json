@@ -1,0 +1,16 @@
+{
+  "name": "Entrega-Final_JavaScript",
+  "version": "1.0.0",
+  "description": "Pagina web para tienda web de pequeño porte.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Johana Madero",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "sweetalert2": "^11.4.14"
+  }
+}
