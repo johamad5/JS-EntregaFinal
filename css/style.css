@@ -163,3 +163,42 @@ h2 span {
   justify-content: space-evenly;
   padding-bottom: 3rem;
 }
+
+/* Shopping cart */
+
+#carrito h4 {
+  font-weight: 700;
+}
+
+#carrito img {
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+.icon {
+  backdrop-filter: blur(3px);
+  padding: 0.5rem 1.2rem;
+  background-color: transparent;
+  border: 2px dashed;
+  color: #ff5500;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  position: fixed;
+  right: 2rem;
+  z-index: 2;
+}
+.iconoCarrito {
+  bottom: 6rem;
+}
+
+.iconoArrow {
+  bottom: 2rem;
+}
+
+.iconoCarrito:hover,
+.iconoArrow:hover {
+  color: #ed960c;
+  transition: all 1s;
+}

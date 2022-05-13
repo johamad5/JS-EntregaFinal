@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <!-- CSS SweetAlert2 -->
     <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css">
     <!-- CSS propio -->
@@ -100,7 +101,8 @@
 
                     <div class="col-md-6 p-4 ps-md-0 d-block my-auto">
                         <h3 class="tituloProductos mb-3">Hamburguesas</h3>
-                        <p class="descripcionP">Varidad de combinaciones y sabores que te aportan muchos nutrintes.</p>
+                        <p class="descripcionP">Varidad de combinaciones y sabores que te aportan muchos nutrintes.
+                        </p>
                         <input type="button" value="Mostrar disponibles" class="hamburguesas btn btn-secondary btn-lg">
                     </div>
 
@@ -118,7 +120,8 @@
 
                     <div class="col-md-6 p-4 ps-md-0 d-block my-auto">
                         <h3 class="tituloProductos mb-3">Pastas</h3>
-                        <p class="descripcionP">Pastas caseras, congeladas, prontas para cocinar o listas para guardar.
+                        <p class="descripcionP">Pastas caseras, congeladas, prontas para cocinar o listas para
+                            guardar.
                         </p>
                         <input type="button" value="Mostrar disponibles" class="pastas btn btn-secondary btn-lg">
                     </div>
@@ -147,6 +150,22 @@
             </div>
             <hr>
         </section>
+
+        <!-- Shopping cart-->
+        <section id="carrito" class="container">
+            <h2 class="text-center titulosImp1">Carrito</h2>
+            <div>
+                <h4 class="text-center">Su carrito de compras está vacío</h4>
+                <img src="./img/emptyCart.svg" alt="ilustracion carrito de compras" class="img-fluid">
+            </div>
+        </section>
+
+        <!--Cart button-->
+        <a href="#carrito" class="icon iconoCarrito"> <i class="bi bi-bag-heart-fill"></i> </a>
+
+
+        <!--Arrow to go up-->
+        <a href="#up" class="icon iconoArrow"> <i class="bi bi-arrow-up-circle-fill"></i></i> </a>
 
     </main>
 
