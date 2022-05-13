@@ -25,3 +25,49 @@ body {
 .navbar-nav li a:hover {
   text-decoration: overline;
 }
+
+/* Presentation section*/
+.coverPage {
+  height: 30vh;
+  background-color: #ff5500;
+}
+
+.coverPage img {
+  height: 100%;
+  padding: 1rem 0rem;
+}
+
+.titleSection {
+  height: auto;
+  background-color: #ed960c;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+}
+
+.titleSection span {
+  text-decoration: underline;
+  text-shadow: 3px 3px 4px #212529;
+}
+
+.welcomeSection {
+  background-color: #d9d9d9;
+}
+
+.bienvenida {
+  font-family: "Playball", cursive;
+  font-size: 3rem;
+  margin: 0px;
+  padding: 1rem 0rem;
+}
+
+h2 span {
+  font-family: "Barrio", cursive;
+  color: #ff5500;
+  font-size: 2.5rem;
+}
+
+.pointsImg {
+  width: auto;
+  height: 15vh;
+}
