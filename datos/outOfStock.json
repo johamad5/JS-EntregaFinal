@@ -1,0 +1,16 @@
+[
+  {
+    "codigo": "H04",
+    "nombre": "HAMBUGUESAS DE POROTOS NEGROS Y LENTEJAS",
+    "cantidad": 6,
+    "precio": 330,
+    "unidades": 1
+  },
+  {
+    "codigo": "P01",
+    "nombre": "SORRENTINOS DE ESPINACA RICOTTA Y NUECES",
+    "cantidad": 6,
+    "precio": 180,
+    "unidades": 1
+  }
+]

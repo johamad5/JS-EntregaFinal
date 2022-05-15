@@ -1,0 +1,37 @@
+[
+  {
+    "codigo": "H01",
+    "nombre": "HAMBUGUESAS DE GARBANZOS Y LENTEJAS",
+    "cantidad": 3,
+    "precio": 180,
+    "unidades": 1
+  },
+  {
+    "codigo": "H02",
+    "nombre": "HAMBUGUESAS DE GARBANZOS Y LENTEJAS",
+    "cantidad": 6,
+    "precio": 330,
+    "unidades": 1
+  },
+  {
+    "codigo": "H03",
+    "nombre": "HAMBUGUESAS DE POROTOS NEGROS Y LENTEJAS",
+    "cantidad": 3,
+    "precio": 180,
+    "unidades": 1
+  },
+  {
+    "codigo": "P02",
+    "nombre": "SORRENTINOS DE JAMON Y QUESO",
+    "cantidad": 6,
+    "precio": 180,
+    "unidades": 1
+  },
+  {
+    "codigo": "P03",
+    "nombre": "SORRENTINOS DE VERDURA",
+    "cantidad": 6,
+    "precio": 180,
+    "unidades": 1
+  }
+]

@@ -92,6 +92,14 @@ h2 span {
   font-style: italic;
 }
 
+.cont {
+  width: 90%;
+  margin: auto;
+  max-width: 1090px;
+}
+
+/* Products cards*/
+
 .burgers,
 .pasta,
 .sauces,
@@ -99,6 +107,10 @@ h2 span {
   font-weight: 100;
   background-color: transparent;
   border: 2px solid;
+}
+
+.card-body p {
+  font-size: 1rem;
 }
 
 .productContainer {
@@ -115,16 +127,16 @@ h2 span {
 
 .card {
   background-color: transparent;
-  padding: 2rem 0rem;
+  padding-top: 2rem;
   border: none;
 }
 
 .card:hover {
-  background-color: #d9d9d9;
+  background-color: #343a40;
 }
 
 .card img {
-  width: 15rem;
+  width: 10rem;
   display: block;
   margin: 1rem auto;
   border-radius: 0.5rem;
@@ -132,6 +144,9 @@ h2 span {
 
 .card .list-group,
 .card .list-group-item {
+  font-size: 1rem;
+  font-weight: 100;
+  font-style: italic;
   border: none;
   background-color: transparent;
   color: #d9d9d9;
@@ -153,6 +168,11 @@ h2 span {
   display: none;
   justify-content: space-evenly;
   padding-bottom: 3rem;
+}
+
+.show {
+  display: flex;
+  margin: auto;
 }
 
 /* Shopping cart */
@@ -212,7 +232,7 @@ footer {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  color: whitesmoke;
+  color: #f8f9fa;
 }
 
 .generalBox {
@@ -236,14 +256,17 @@ footer {
 
 .formsButton:hover {
   background: linear-gradient(45deg, #ed960c, #ff5500);
-  color: #ffffff;
-  border-bottom: 4px solid white;
+  color: #f8f9fa;
+  border-bottom: 4px solid #f8f9fa;
+  border-top: 0.5px solid #f8f9fa;
+  border-left: 0.5px solid #f8f9fa;
+  border-right: 0.5px solid #f8f9fa;
   text-shadow: none;
 }
 
 .form {
   max-width: 500px;
-  margin: 0rem 1rem;
+  margin: auto;
   background-color: rgba(245, 245, 245, 0.479);
   padding: 2rem 5rem;
   border-radius: 0.5rem;
@@ -252,5 +275,5 @@ footer {
 .end {
   background-color: #343a40;
   padding: 1rem 3rem;
-  color: whitesmoke;
+  color: #f8f9fa;
 }
