@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <!-- Google fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Barrio&family=Montserrat:ital,wght@0,200;1,900&family=Playball&family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Barrio&family=Montserrat:ital,wght@0,200;1,900&family=Playcoball&family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400&display=swap"
         rel="stylesheet">
     <title>Nutrideli</title>
 </head>
@@ -75,7 +75,7 @@
 
                 <!-- Bienvenida e intro -->
                 <div class="container">
-                    <h2 class="bienvenida text-center">Bienvenidos al mundo de <span>NutriDeli.</span></h2>
+                    <h2 class="welcomeText text-center">Bienvenidos al mundo de <span>NutriDeli.</span></h2>
                     <div id="intro" class="text-center"></div>
                     <img class="img-fluid pointsImg d-none d-md-block mx-auto" src="./img/points.png"
                         alt="decoration points">
@@ -89,11 +89,11 @@
         <!--Products section-->
         <section class="container">
 
-            <h2 id="products" class="text-center titulosImp1">Productos</h2>
+            <h2 id="products" class="text-center importantTitles1">Productos</h2>
             <div id="aviso" class="container"></div>
 
             <!-- Products cards -->
-            <div class="contenedorProductos">
+            <div class="productContainer">
                 <div class="row align-items-center text-light bg-dark position-relative rounded my-3 text-center">
                     <div class="col-md-6 mb-md-0 p-md-4">
                         <img src="./img/hamburguesas.jpg" class="img-fluid rounded mt-3" alt="product photo">
@@ -101,12 +101,13 @@
 
                     <div class="col-md-6 p-4 ps-md-0 d-block my-auto">
                         <h3 class="tituloProductos mb-3">Hamburguesas</h3>
-                        <p class="descripcionP">Varidad de combinaciones y sabores que te aportan muchos nutrintes.
+                        <p class="productDescription">Varidad de combinaciones y sabores que te aportan muchos
+                            nutrintes.
                         </p>
-                        <input type="button" value="Mostrar disponibles" class="hamburguesas btn btn-secondary btn-lg">
+                        <input type="button" value="Mostrar disponibles" class="burgers btn btn-secondary btn-lg">
                     </div>
 
-                    <div class="H burgerContainer"></div>
+                    <div class="H"></div>
                 </div>
             </div>
 
@@ -123,7 +124,7 @@
                         <p class="descripcionP">Pastas caseras, congeladas, prontas para cocinar o listas para
                             guardar.
                         </p>
-                        <input type="button" value="Mostrar disponibles" class="pastas btn btn-secondary btn-lg">
+                        <input type="button" value="Mostrar disponibles" class="pasta btn btn-secondary btn-lg">
                     </div>
 
                     <div class="P pastaContainer"></div>
@@ -139,9 +140,9 @@
                     </div>
 
                     <div class="col-md-6 p-4 ps-md-0 d-block my-auto">
-                        <h3 class="tituloProductos mb-3">Salsas</h3>
+                        <h3 class="productTitles mb-3">Salsas</h3>
                         <p class="descripcionP">Te ofrecemos algunas de nuestras esquisitas salsas.</p>
-                        <input type="button" value="Mostrar disponibles" class="salsas btn btn-secondary btn-lg ">
+                        <input type="button" value="Mostrar disponibles" class="sauces btn btn-secondary btn-lg ">
                     </div>
 
 
@@ -152,23 +153,69 @@
         </section>
 
         <!-- Shopping cart-->
-        <section id="carrito" class="container">
-            <h2 class="text-center titulosImp1">Carrito</h2>
+        <section id="cart" class="container">
+            <h2 class="text-center importantTitles1">Carrito</h2>
             <div>
                 <h4 class="text-center">Su carrito de compras está vacío</h4>
-                <img src="./img/emptyCart.svg" alt="ilustracion carrito de compras" class="img-fluid">
+                <img src="./img/emptyCart.svg" alt="ilustracion cart de compras" class="img-fluid">
             </div>
         </section>
 
         <!--Cart button-->
-        <a href="#carrito" class="icon iconoCarrito"> <i class="bi bi-bag-heart-fill"></i> </a>
-
+        <a href="#cart" class="icon iconCart"> <i class="bi bi-bag-heart-fill"></i> </a>
 
         <!--Arrow to go up-->
-        <a href="#up" class="icon iconoArrow"> <i class="bi bi-arrow-up-circle-fill"></i></i> </a>
-
+        <a href="#up" class="icon iconArrow"> <i class="bi bi-arrow-up-circle-fill"></i></i> </a>
     </main>
 
+    <footer>
+        <div class="row generalBox g-0 text-center">
+            <h2 class="footerTitle text-center">Este es un espacio para ti :)</h2>
+
+            <div class="col-12 col-md-5 offset-md-1 text-center d-block m-auto">
+
+                <section class="form">
+                    <img src="./img/seccionContacto.svg" alt="ilustracion" class="img-fluid">
+                </section>
+            </div>
+
+            <div class="col-12 col-md-6">
+
+                <section>
+                    <p>Aquí puedes hacernos sugerencias sobre nuestros productos.</p>
+                    <h3>Ya los probaste?</h3>
+                    <p>Cuéntanos qué te parecieron! Toma el papel de crítico gastronómico y dinos qué te gustó y
+                        qué no. Así nos ayudas a <b>conocer a nuestros clientes y mejorar nuestros productos</b>
+                    </p>
+
+                    <br>
+                    <div><input type="button" value="Hacer sugerencia" class="formsButton btnS">
+                    </div>
+
+                    <hr>
+                    <br>
+                    <h3>Quieres contactarnos?</h3>
+                    <p>Si realizas pedidos de forma periodica y somos infaltables en tu congelador, te contamos
+                        que
+                        eres considerado como un cliente VIP!</p>
+                    <p>Si tienes dudas que tanto podemos cocinar porque quieres hacer un pedido grande...
+                        dejanos tu
+                        consulta en esta sección, <b>que vengan los desafios!!</b></p>
+                    <br>
+
+                    <div><input type="button" value="Hacer consulta" class="formsButton bntC">
+                    </div>
+                    <br>
+
+                </section>
+            </div>
+        </div>
+
+        <section class="end">
+            <p>Todos los derechos reservados.</p>
+        </section>
+
+    </footer>
 
     <!-- JavaScript Bootstrap -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
