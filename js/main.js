@@ -1,4 +1,4 @@
-/* Solicitar nombre para ofrecer servicio mas personalizado. */
+/* Solicitar nombre para ofrecer servicio mas personalizado. 
 Swal.fire({
   input: "text",
   title: "Bienvenido a Nutrideli!",
@@ -26,7 +26,7 @@ Swal.fire({
   hideClass: {
     popup: "animate__animated animate__fadeOutUp",
   },
-});
+});*/
 
 /* Agregandon intro HTML */
 let intro = document.getElementById("intro");
@@ -105,7 +105,7 @@ const productStock = async (valor) => {
             <li class="list-group-item p-0"> $ ${precio}</li>
           </ul>
           <div class="col-7 card-body text-center">
-            <input type="button" class="btn btn-secondary m-0" value="Comprar" onclick="agregarCarrito('${codigo}');" />
+            <input type="button" class="btn btn-secondary m-0" value="Comprar" onclick="addCart('${codigo}');" />
           </div>
         </div>
       </div>`;
@@ -115,7 +115,183 @@ const productStock = async (valor) => {
     (place.innerHTML = `Lo siento, no tenemos productos disponibles por el momento en esta sección.`);
 };
 
-//Aplicar funciones y mostrar productos en stock
+/* Aplicar funciones y mostrar productos en stock */
 productStock("h");
 productStock("p");
 productStock("s");
+
+/* Agregar productos al carrito de compra */
+let shoppingCart = [];
+
+async function addCart(productCode) {
+  localStorage.cart == undefined &&
+    localStorage.setItem("cart", JSON.stringify(shoppingCart));
+
+  let NewCart = JSON.parse(localStorage.getItem("cart"));
+
+  const resp = await fetch("../datos/inStock.json");
+  const info = await resp.json();
+
+  productCode = productCode.toUpperCase();
+  let solicitedProduct = info.filter(
+    (element) => element.codigo == productCode
+  );
+
+  let article = NewCart.find((element) => element.codigo == productCode);
+
+  article == undefined ? NewCart.push(...solicitedProduct) : article.unidades++;
+
+  localStorage.setItem("cart", JSON.stringify(NewCart));
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "info",
+    title: `Producto agregado al carrito!`,
+  });
+
+  reloadCart();
+}
+
+function reloadCart() {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  let cartPlace = document.querySelector(".cartPlace");
+  let cartInfo = document.querySelector("#cart div");
+
+  cartInfo.innerHTML = "";
+  cartPlace.innerHTML = "";
+
+  cart.forEach((elem) => {
+    let { codigo, nombre, cantidad, precio, unidades } = elem;
+
+    cartPlace.innerHTML += ` 
+    <div class='cardCart row align-items-center radius'>
+      <div class='col-12 col-md-8'>
+          <p class='m-0'><b>◈${nombre}</b></p>
+          <span class='m-3'>Pack x${cantidad} | $${precio} | Unidades: ${unidades}</span>
+      </div>
+      <div class='col-12 col-md-4'>
+      <br>
+        <div class='row'>
+          <div class='col d-flex justify-content-evenly'>
+            <input type='button' value='-' onclick="decreaseUnits('${codigo}');" class='btn btn-dark btnCardCart ${codigo}Decrease'/>
+            <input type='button' value='+' onclick="increaseUnits('${codigo}');" class='btn btn-dark btnCardCart'/>
+          </div>
+          <div class='col'>
+            <input type='button' value='Eliminar' onclick="remove('${codigo}');" class='btn btn-dark btnCardCart'/>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  let cartButton = document.querySelector(".iconCart");
+  cartButton.addEventListener("click", () => {
+    Swal.fire({
+      title: "<strong>Carrito</strong>",
+      html: `${cartPlace.innerHTML}`,
+      showCloseButton: true,
+      showCancelButton: false,
+      focusConfirm: false,
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+      confirmButtonAriaLabel: "Thumbs up, great!",
+      cancelButtonAriaLabel: "Thumbs down",
+
+      showClass: {
+        popup: "animate__animated animate__fadeInUp",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutDown",
+      },
+    });
+  });
+}
+
+function decreaseUnits(codigo) {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  let product = cart.find((elem) => elem.codigo == codigo);
+
+  product.unidades > 1 && product.unidades--;
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "bottom-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "warning",
+    title: `Cantidad disminuida!`,
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  reloadCart();
+}
+
+function increaseUnits(codigo) {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  let product = cart.find((elem) => elem.codigo == codigo);
+
+  product.unidades < 10 && product.unidades++;
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "bottom-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "warning",
+    title: `Cantidad aumentada!`,
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  reloadCart();
+}
+
+function remove(codigo) {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  let product = cart.filter((elem) => elem.codigo !== codigo);
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "bottom-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "error",
+    title: `Producto eliminado!`,
+  });
+
+  localStorage.setItem("cart", JSON.stringify(product));
+  reloadCart();
+}
