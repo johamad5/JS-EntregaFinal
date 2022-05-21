@@ -277,7 +277,7 @@ footer {
   text-shadow: none;
 }
 
-.form {
+.formSection {
   max-width: 500px;
   margin: auto;
   background-color: rgba(245, 245, 245, 0.479);
@@ -289,4 +289,8 @@ footer {
   background-color: #343a40;
   padding: 1rem 3rem;
   color: #f8f9fa;
+}
+
+.btnC {
+  margin-bottom: 10vh;
 }
