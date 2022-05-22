@@ -100,6 +100,9 @@ h2 span {
 
 /* Products cards*/
 
+.burgers:focus,
+.pasta:focus,
+.sauces:focus,
 .burgers,
 .pasta,
 .sauces,
@@ -119,10 +122,16 @@ h2 span {
   margin: auto 1rem;
 }
 
+.cartButton:focus,
+.cartButton:hover,
+.burgers:hover,
+.pasta:hover,
+.sauces:hover,
 .card-body .btn:hover {
   border: #ed960c 2px solid;
   color: #ed960c;
   font-weight: 400;
+  background-color: transparent;
 }
 
 .card {
@@ -216,8 +225,9 @@ h2 span {
 }
 
 .cardCart {
+  width: 80%;
   text-align: center;
-  margin-bottom: 2rem;
+  margin: auto auto 2rem auto;
   box-shadow: 0px 2px 4px #d9d9d9;
   padding: 1rem 1rem;
 }
@@ -226,6 +236,10 @@ h2 span {
   background-color: transparent;
   border: 1px solid #212529;
   color: #212529;
+}
+
+.cartPlace .cartButton {
+  margin-bottom: 2rem;
 }
 
 /* Footer section */
@@ -253,7 +267,9 @@ footer {
   padding: 0rem 1rem;
 }
 
-.formsButton {
+.createTicket .btn,
+.formsButton,
+.cartButton {
   backdrop-filter: blur(3px);
   font-family: "Barrio", sans-serif;
   padding: 0.5rem 1.5rem;
@@ -267,6 +283,8 @@ footer {
   background-color: transparent;
 }
 
+.createTicket .btn:focus,
+.createTicket .btn:hover,
 .formsButton:hover {
   background: linear-gradient(45deg, #ed960c, #ff5500);
   color: #f8f9fa;
@@ -293,4 +311,29 @@ footer {
 
 .btnC {
   margin-bottom: 10vh;
+}
+
+.createTicket {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  padding: 0rem 8rem 5rem 8rem;
+  border-radius: 0.5rem;
+  background-color: #d9d9d97c;
+  backdrop-filter: blur(14px);
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  display: none2;
+}
+
+.createTicket input {
+  background-color: #d9d9d9;
+  box-shadow: 2px 4px 4px #212529;
+  border: transparent;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem;
+  margin-top: 0.5rem;
 }

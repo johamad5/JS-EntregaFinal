@@ -1,4 +1,4 @@
-/* Solicitar nombre para ofrecer servicio mas personalizado. 
+/* Solicitar nombre para ofrecer servicio mas personalizado. */
 Swal.fire({
   input: "text",
   title: "Bienvenido a Nutrideli!",
@@ -26,13 +26,13 @@ Swal.fire({
   hideClass: {
     popup: "animate__animated animate__fadeOutUp",
   },
-});*/
+});
 
-/* Agregandon intro HTML */
+/* Add HTML intro. */
 let intro = document.getElementById("intro");
 intro.innerHTML = `<p> Este emprendimiento que surgió de la amistad y la pasión por la cocina.</p> <p> No tenemos la receta mágica para la felicidad eterna pero <b>si tenemos la receta que une lo saludable con el buen sabor </b>! <br> Ahora ya nada puede impedir que prepares una <b>deliciosa y nutritiva comida</b> en cuestión de minutos. </p> <p class="m-0"> Es tan fácil como quitar tu producto NutriDeli del freezzer o heladera y cocinarlo los minutos que sean necesarios. </p>`;
 
-/* Agregar HTML y asignando clases */
+/* Add HTML and assign classes. */
 let notice = document.getElementById("notice");
 fetch("../datos/inStock.json")
   .then((resp) => resp.json())
@@ -42,7 +42,7 @@ fetch("../datos/inStock.json")
     <div id="conStock"></div>`;
   });
 
-/* Desplegar / ocultar listas de productos*/
+/* Show - hide product lists. */
 let burgerButton = document.querySelector(".burgers");
 let pastaButton = document.querySelector(".pasta");
 let sauceButton = document.querySelector(".sauces");
@@ -78,7 +78,7 @@ function showHideS() {
       (sauceButton.value = "Mostrar disponibles"));
 }
 
-/* Filtrar productos y mostrarlos en la sección correspondiente */
+/* Filter products and display them in the corresponding section. */
 const productStock = async (valor) => {
   let letter = valor.toUpperCase();
   let place = document.querySelector(`.${letter}`);
@@ -115,12 +115,12 @@ const productStock = async (valor) => {
     (place.innerHTML = `Lo siento, no tenemos productos disponibles por el momento en esta sección.`);
 };
 
-/* Aplicar funciones y mostrar productos en stock */
+/* Apply functions and show products in stock */
 productStock("h");
 productStock("p");
 productStock("s");
 
-/* Agregar productos al carrito de compra */
+/* Add products to shopping cart. */
 let shoppingCart = [];
 
 async function addCart(productCode) {
@@ -163,12 +163,12 @@ async function addCart(productCode) {
   reloadCart();
 }
 
+/* Reload shopping cart. */
 function reloadCart() {
   let cart = JSON.parse(localStorage.getItem("cart"));
   let cartPlace = document.querySelector(".cartPlace");
-  let cartInfo = document.querySelector("#cart div");
+  let cartInfo = document.querySelector(".illustrationOrButton");
 
-  cartInfo.innerHTML = "";
   cartPlace.innerHTML = "";
 
   cart.forEach((elem) => {
@@ -195,6 +195,14 @@ function reloadCart() {
     </div>`;
   });
 
+  cartInfo.innerHTML = `
+  <form>
+    <div class="cartPlace text-center">
+      <input type="submit" value="Realizar comprar" onclick="purchease();" class="btn btn-secondary btn-lg me-3 cartButton">
+      <input type="button" value="Vaciar carrito" onclick="deleteCart();" class="btn btn-secondary btn-lg cartButton">
+    </div>
+  </form>`;
+
   let cartButton = document.querySelector(".iconCart");
   cartButton.addEventListener("click", () => {
     Swal.fire({
@@ -203,7 +211,7 @@ function reloadCart() {
       showCloseButton: true,
       showCancelButton: false,
       focusConfirm: false,
-      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Cerrar',
       confirmButtonAriaLabel: "Thumbs up, great!",
       cancelButtonAriaLabel: "Thumbs down",
 
@@ -217,6 +225,7 @@ function reloadCart() {
   });
 }
 
+/* Reduce units of a product. */
 function decreaseUnits(codigo) {
   let cart = JSON.parse(localStorage.getItem("cart"));
   let product = cart.find((elem) => elem.codigo == codigo);
@@ -244,6 +253,7 @@ function decreaseUnits(codigo) {
   reloadCart();
 }
 
+/* Increase units of a product. */
 function increaseUnits(codigo) {
   let cart = JSON.parse(localStorage.getItem("cart"));
   let product = cart.find((elem) => elem.codigo == codigo);
@@ -271,6 +281,7 @@ function increaseUnits(codigo) {
   reloadCart();
 }
 
+/* Delete a product. */
 function remove(codigo) {
   let cart = JSON.parse(localStorage.getItem("cart"));
   let product = cart.filter((elem) => elem.codigo !== codigo);
@@ -296,7 +307,104 @@ function remove(codigo) {
   reloadCart();
 }
 
-/* footer section*/
+/* Checkout. */
+function purchease() {
+  let formTicket = document.querySelector(".createTicket");
+  formTicket.style.display = "block";
+}
+
+let allTickets = [];
+function confirmTicket() {
+  localStorage.tickets == undefined &&
+    localStorage.setItem("tickets", JSON.stringify(allTickets));
+
+  let formTicket = document.querySelector(".ticketForm");
+  let form = document.querySelector(".createTicket");
+  let customerName = document.querySelector("#customerName");
+  let customerPhone = document.querySelector("#customerPhone");
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  let newTickets = JSON.parse(localStorage.getItem("tickets"));
+  let deleteBtn = document.querySelector(".illustrationOrButton");
+  let clearnCart = document.querySelector(".cartPlace");
+
+  customerName.value,
+    customerPhone.value != "" &&
+      newTickets.push(
+        new tickets(
+          newTickets.length + 1,
+          customerName.value,
+          customerPhone.value,
+          cart
+        )
+      );
+
+  formTicket.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Gracias por tu compra!",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+
+    document.querySelector(".ticketForm").reset();
+    form.style.display = "none";
+
+    localStorage.removeItem("cart"),
+      (clearnCart.innerHTML = ``),
+      (deleteBtn.innerHTML = `
+          <h4 class="text-center">Su carrito de compras está vacío</h4>
+          <img src="./img/emptyCart.svg" alt="ilustracion cart de compras" class="img-fluid">`);
+  });
+
+  localStorage.setItem("tickets", JSON.stringify(newTickets));
+}
+
+function cancelTicket() {
+  let form = document.querySelector(".createTicket");
+  form.style.display = "none";
+}
+
+/* Delete shopping cart. */
+function deleteCart() {
+  let deleteBtn = document.querySelector(".illustrationOrButton");
+  let clearnCart = document.querySelector(".cartPlace");
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-outline-success",
+      cancelButton: "btn btn-outline-secondary me-3",
+    },
+    buttonsStyling: false,
+  });
+
+  swalWithBootstrapButtons
+    .fire({
+      title: "Vaciar carrito?",
+      text: "Su carrito de compras quedará vacío.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Vaciar",
+      cancelButtonText: "X",
+      reverseButtons: true,
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          "Listo!",
+          "Su carrito esta vacío",
+          "success",
+          localStorage.removeItem("cart"),
+          (clearnCart.innerHTML = ``),
+          (deleteBtn.innerHTML = `
+          <h4 class="text-center">Su carrito de compras está vacío</h4>
+          <img src="./img/emptyCart.svg" alt="ilustracion cart de compras" class="img-fluid">`)
+        );
+      }
+    });
+}
 
 // object definition
 // Suggestions
@@ -318,6 +426,17 @@ class queries {
   }
 }
 
+//Tickets
+class tickets {
+  constructor(id, nombre, telefono, productos) {
+    this.id = id;
+    this.nombre = nombre;
+    this.telefono = telefono;
+    this.productos = productos;
+  }
+}
+
+/* Display form depending on button pressed. */
 let formSection = document.querySelector(".formSection");
 let btnS = document.querySelector(".btnS");
 let btnC = document.querySelector(".btnC");
@@ -325,6 +444,7 @@ let btnC = document.querySelector(".btnC");
 btnS.addEventListener("click", sug);
 btnC.addEventListener("click", cont);
 
+// Suggestion form.
 function sug() {
   formSection.innerHTML = `
   <form id="form1">
@@ -345,6 +465,7 @@ function sug() {
   `;
 }
 
+// Contact form.
 function cont() {
   formSection.innerHTML = `
   <form id="form2">

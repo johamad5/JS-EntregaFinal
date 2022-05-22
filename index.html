@@ -56,6 +56,7 @@
     </header>
 
     <main>
+
         <!--Presentation section -->
         <section>
             <div class="coverPage">
@@ -156,14 +157,35 @@
         <!-- Shopping cart-->
         <section id="cart" class="container">
             <h2 class="text-center importantTitles1">Carrito</h2>
-
-            <div>
-                <h4 class="text-center">Su carrito de compras está vacío</h4>
-                <img src="./img/emptyCart.svg" alt="ilustracion cart de compras" class="img-fluid">
-            </div>
-
-            <div class="cartPlace"></div>
         </section>
+
+        <div class="cartPlace"></div>
+
+        <div class="illustrationOrButton text-center">
+            <h4 class="text-center">Su carrito de compras está vacío</h4>
+            <img src="./img/emptyCart.svg" alt="ilustracion cart de compras" class="img-fluid">
+        </div>
+
+
+
+
+        <div class="createTicket">
+            <h4 class="footerTitle">Tu ticket</h4>
+            <p>Completa los siguientes datos para asociar a tu carrito y generar el ticket de compra. Nos pondremose en
+                contacto contigo en menos de 24hs.</p>
+            <form class="ticketForm">
+                <div class="mb-3">
+                    <input type="text" required id="customerName" placeholder="Nombre">
+                </div>
+                <div class="mb-3">
+                    <input type="tel" required maxlength="9" id="customerPhone" placeholder="Telefono">
+                </div>
+                <input type="submit" class="btn btn-outline-secondary buyBtn" onclick="confirmTicket();"
+                    value="Realizar pedido">
+                <input type="submit" class="btn btn-outline-secondary cancelBtn" onclick="cancelTicket();"
+                    value="Cancelar">
+            </form>
+        </div>
 
         <!--Cart button-->
         <a href="#cart" class="icon iconCart"> <i class="bi bi-bag-heart-fill"></i> </a>
