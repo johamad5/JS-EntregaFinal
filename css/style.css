@@ -64,7 +64,7 @@ body {
 h2 span {
   font-family: "Barrio", cursive;
   color: #ff5500;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .pointsImg {
@@ -325,7 +325,7 @@ footer {
   backdrop-filter: blur(14px);
   text-align: center;
   font-family: "Roboto", sans-serif;
-  display: none2;
+  display: none;
 }
 
 .createTicket input {
