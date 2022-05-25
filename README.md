@@ -9,7 +9,8 @@ Este sitio web fue creado siguiendo el modelo de mobile first el cual, tiene en 
 
 Por lo cual uno de mis principales objetivos a la hora de diseñar es que un usuario desde su móvil tenga la misma experiencia a la hora de navegar por el sitio web que un usuario desde una computadora de escritorio.
 
-
+<img src="./img/phone.png" alt="vista desde telefono"/>
+<img src="./img/wev.png" alt="vista desde computadora de escritorio"/>
 
 ## Formularios amigables
 
